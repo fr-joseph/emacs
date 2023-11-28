@@ -1,0 +1,31 @@
+;; -*- lexical-binding: t; -*-
+
+(defun fj/download-yt ()
+  (interactive)
+  (let* ((url (read-string "URL: " (fj/string-oneline-trim (fj/get-clipboard))))
+         (filename (read-string "Filename: "))
+         (outdir (format "-P %s" (expand-file-name fj/ytdl-dir)))
+         (fileopt (format "-o '%s.%%(ext)s'" filename))
+         (cmd (format "yt-dlp %s %s %s" outdir fileopt url))
+         )
+    (fj/run-cmd-in-eshell cmd)
+    ))
+
+(defun fj/download-yt-many (subdir-name name-url-list)
+  (interactive)
+  (setq fj/tmp-yt-dl-cmd (substitute-in-file-name "$FJ_BIN/notify 'ytdl' 'starting'"))
+    (dolist (name-url-pair name-url-list)
+      (let* ((url (cadr name-url-pair))
+             (filename (car name-url-pair))
+             (outdir (format "-P %s" (expand-file-name (concat fj/ytdl-dir "/" subdir-name))))
+             (fileopt (format "-o '%s.%%(ext)s'" filename))
+             (cmd (format "yt-dlp %s %s %s" outdir fileopt url))
+             )
+        (setq fj/tmp-yt-dl-cmd
+              (concat fj/tmp-yt-dl-cmd " && " cmd))
+        )
+      )
+    (setq fj/tmp-yt-dl-cmd
+          (concat fj/tmp-yt-dl-cmd (substitute-in-file-name " && $FJ_BIN/notify 'ytdl' 'done'")))
+    (async-shell-command fj/tmp-yt-dl-cmd)
+  )
