@@ -73,7 +73,7 @@
 
   (org-crypt-use-before-save-magic)
   ;; cf. https://orgmode.org/manual/Org-Crypt.html
-  (setq org-crypt-key "" ; set per system in system.el
+  (setq org-crypt-key fj/org-crypt-key ; set per system in system.el
         auto-save-default nil ; auto-save doesn't work with org-crypt
         org-crypt-tag-matcher "crypt" ; tag to use for encrypting entries
         org-crypt-disable-auto-save t ; if auto-save enabled, disable it
