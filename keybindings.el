@@ -129,6 +129,7 @@
     "SPC gb" 'magit-log-buffer-file
     "SPC gl" 'magit-log-current
     "SPC gs" 'fj/magit-status-bak
+    "SPC ge" 'fj/magit-status-emacs
     "SPC ks" 'kmacro-start-macro
     "SPC ke" 'kmacro-end-macro
     "SPC kc" 'kmacro-call-macro
@@ -193,9 +194,9 @@
     "C-M-g" 'vertico-exit ; exit & run selected candidate
     )
 
-  (general-def magit-mode-map
-    "C-c ae" 'fj/magit-add-emacs
-    )
+  ;; (general-def magit-mode-map
+  ;;   "C-c ae" 'fj/magit-add-emacs
+  ;;   )
 
   (general-def (emacs-lisp-mode-map lisp-interaction-mode-map)
     "C-c C-c" 'eval-last-sexp
