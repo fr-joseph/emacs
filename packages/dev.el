@@ -23,6 +23,10 @@
   :hook ((emacs-lisp-mode) . elisp-def-mode)
   :diminish)
 
+(use-package fsharp-mode)
+
+(use-package eglot-fsharp)
+
 (use-package rainbow-delimiters
   :hook (prog-mode . rainbow-delimiters-mode))
 
