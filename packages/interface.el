@@ -32,13 +32,14 @@
 (use-package consult)
 
 (use-package consult-dir
-  :after consult
-  )
+  :after consult)
+
+;; front-end for workspace/symbols LSP call
+(use-package consult-eglot
+  :after (consult eglot))
 
 ;; TODO: other consult packages
-;; consult-tex                 Consult powered completion for tex
 ;; consult-todo                Search hl-todo keywords in consult
-;; consult-eglot               A consulting-read interface for eglot
 ;; consult-flycheck            Provides the command `consult-flycheck'
 ;; consult-org-roam            Consult integration for org-roam
 ;; consult-yasnippet           A consulting-read interface for yasnippet
