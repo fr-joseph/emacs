@@ -49,6 +49,8 @@
   (add-to-list 'org-structure-template-alist '("sh" . "src shell"))
   (add-to-list 'org-structure-template-alist '("el" . "src elisp"))
   (add-to-list 'org-structure-template-alist '("calc" . "src calc"))
+  (add-to-list 'org-structure-template-alist '("tex" . "src tex"))
+  (add-to-list 'org-structure-template-alist '("ttex" . "src tex :tangle yes"))
 
   ;;
   ;; 1.  Choose a heading to contain a TOC and go to it.
