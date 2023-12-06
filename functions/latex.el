@@ -16,12 +16,24 @@
   (fj/compile-latex-file (buffer-file-name))
   )
 
-(defun fj/try-compile-latex-this-file ()
-  "check file extension to decide whether to try compile"
+(defun fj/file-name-with-tex-ext ()
+  "return this buffer's file name, but with .tex extension"
   (interactive)
-  (when (s-matches-p "^.+\\.tex$" (buffer-file-name))
-    (fj/compile-latex-this-file)
-    ))
+  (format "%s.tex"
+          (file-name-sans-extension
+           (buffer-file-name))))
 
-(advice-add 'save-buffer :after #'fj/try-compile-latex-this-file)
-;; (advice-remove 'save-buffer #'fj/try-compile-latex-this-file)
+(defun fj/org-tangle-and-compile-if-latex ()
+  "tangle org file, and if it generated a latex file, compile it"
+  (interactive)
+  ;; temporarily disable the `save-buffer' pre-tangle-hook
+  ;; otherwise will have a stack overflow
+  ;; since we are calling this from advice for save-buffer
+  (let ((org-babel-pre-tangle-hook nil))
+    (org-babel-tangle)
+    )
+  ;; compile tex file with same name as this org file, if exists
+  (let* ((tex-file (fj/file-name-with-tex-ext)))
+    (when (file-exists-p tex-file)
+      (fj/compile-latex-file tex-file)
+      )))
