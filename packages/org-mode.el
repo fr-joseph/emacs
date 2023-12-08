@@ -71,7 +71,26 @@
   (use-package org-appear
     :hook (org-mode . org-appear-mode))
 
+  (use-package org-bullets
+    :after org
+    :hook (org-mode . org-bullets-mode)
+    :custom
+    (org-bullets-bullet-list
+     ;; "◉"
+     '("●" "✚" "◆" "○" "✜" "◇")
+     )
+    )
 
+  (dolist (face '((org-level-1 . 1.20)
+                  (org-level-2 . 1.20)
+                  (org-level-3 . 1.15)
+                  (org-level-4 . 1.15)
+                  (org-level-5 . 1.10)
+                  (org-level-6 . 1.10)
+                  (org-level-7 . 1.05)
+                  (org-level-8 . 1.05)))
+    (set-face-attribute (car face) nil :font "Cantarell" :weight 'regular :height (cdr face))
+    )
 
   (org-crypt-use-before-save-magic)
   ;; cf. https://orgmode.org/manual/Org-Crypt.html
