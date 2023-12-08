@@ -210,6 +210,9 @@
 
   (general-def org-mode-map
     "C-j" 'org-indent-region
+    "C-c SPC h" 'org-fold-hide-subtree
+    "M-p" 'org-metaup
+    "M-n" 'org-metadown
     )
 
   (general-def dired-mode-map
