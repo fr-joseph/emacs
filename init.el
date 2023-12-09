@@ -42,6 +42,8 @@
   (message " ")
   )
 
+;;(setq debug-on-error t)
+
 (cond
 
  (
