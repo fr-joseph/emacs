@@ -18,5 +18,5 @@
           )
         ))
     (save-buffer)
-    (cmd-mode 1)
+    ;;(cmd-mode 1)
     )

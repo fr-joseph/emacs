@@ -87,6 +87,13 @@
 
  )
 
+
+(use-package emacs
+  :custom
+  (help-at-pt-timer-delay 0.25) ; seconds to wait before showing help at point
+  (help-at-pt-display-when-idle t) ; auto show local help on point-over, e.g. for org-mode links
+  )
+
 (set-default-coding-systems 'utf-8)
 
 (column-number-mode)
@@ -105,20 +112,17 @@
 (dolist (mode '(org-mode-hook))
   (add-hook mode (lambda () (display-line-numbers-mode 0))))
 
-(dolist (mode '(
-                prog-mode-hook
-                text-mode-hook
-                helpful-mode-hook
-                messages-buffer-mode-hook
-                ;; TODO: cmd-mode 1 hook for special-mode?
-                ;; special-mode-hook
-                ))
-  (add-hook mode (lambda () (cmd-mode 1))))
+;; (dolist (mode '(
+;;                 prog-mode-hook
+;;                 text-mode-hook
+;;                 helpful-mode-hook
+;;                 messages-buffer-mode-hook
+;;                 ))
+;;   (add-hook mode (lambda () (cmd-mode 1))))
 
-;; override some modes which derive from the above
-(dolist (mode '(git-commit-mode-hook))
-  (add-hook mode (lambda () (cmd-mode 0))))
-
+;; ;; override some modes which derive from the above
+;; (dolist (mode '(git-commit-mode-hook))
+;;   (add-hook mode (lambda () (cmd-mode 0))))
 
 (auto-fill-mode 1)
 (blink-cursor-mode -1)

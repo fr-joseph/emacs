@@ -62,20 +62,20 @@
   ([remap describe-command] . helpful-command)
   ([remap describe-key] . helpful-key))
 
-(use-package key-chord
-  :config
-  (key-chord-mode 1)
+;; (use-package key-chord
+;;   :config
+;;   (key-chord-mode 1)
 
-  (setq key-chord-two-keys-delay 0.1 ; default 0.1
-        key-chord-one-key-delay 0.2) ; default 0.2
+;;   (setq key-chord-two-keys-delay 0.1 ; default 0.1
+;;         key-chord-one-key-delay 0.2) ; default 0.2
 
-  ;; unless in cmd-mode, use `jk/kj' to enter cmd-mode
-  ;; if in cmd-mode, should use `i' to exit cmd-mode
-  (key-chord-define-global "jk" (lambda () (interactive)
-                                  (if cmd-mode "jk" (cmd-mode))))
-  (key-chord-define-global "kj" (lambda () (interactive)
-                                  (if cmd-mode "kj" (cmd-mode))))
-  )
+;;   ;; unless in cmd-mode, use `jk/kj' to enter cmd-mode
+;;   ;; if in cmd-mode, should use `i' to exit cmd-mode
+;;   (key-chord-define-global "jk" (lambda () (interactive)
+;;                                   (if cmd-mode "jk" (cmd-mode))))
+;;   (key-chord-define-global "kj" (lambda () (interactive)
+;;                                   (if cmd-mode "kj" (cmd-mode))))
+;;   )
 
 (use-package embark
   :after vertico
