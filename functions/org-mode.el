@@ -17,3 +17,9 @@
   "copy URL of org-mode link at point"
   (interactive)
   (kill-new (org-element-property :raw-link (org-element-context))))
+
+(defun fj/org-agenda-dashboard ()
+  "go to org-agenda custom dashboard"
+  (interactive)
+  (org-agenda nil "d")
+  )

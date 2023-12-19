@@ -28,6 +28,8 @@
     :prefix "s-i"
     "G" 'consult-ripgrep
     "L" 'consult-line-multi
+    "a" 'org-agenda
+    "d" 'fj/org-agenda-dashboard
     "bc" 'fj/ibuffer-clean
     "cc" 'comment-region
     "cu" 'uncomment-region

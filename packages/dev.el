@@ -8,7 +8,10 @@
   )
 
 (use-package hl-todo
-  :hook ((org-mode prog-mode) . hl-todo-mode))
+  :hook ((org-mode prog-mode) . hl-todo-mode)
+  :config
+  (add-to-list 'hl-todo-keyword-faces '("TODO" . "#ff0000"))
+  )
 
 (use-package magit-todos
   :after magit

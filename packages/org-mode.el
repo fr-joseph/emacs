@@ -22,7 +22,34 @@
         org-startup-folded 'content
         org-cycle-separator-lines 2
         org-directory fj/org-directory
+        org-image-actual-width nil
+        org-agenda-files '("~/bak/org/sourdough/sourdough.org"
+                           "~/bak/org/todo.org"
+                           )
+        org-format-latex-options
+        '(:foreground default :background default :scale 2.0
+        		          :html-foreground "Black" :html-background "Transparent"
+        		          :html-scale 1.0 :matchers ("begin" "$1" "$" "$$" "\\(" "\\["))
         )
+
+  (setq
+   org-todo-keywords '((sequence "TODO(t)" "NEXT(n)" "|" "DONE(d!)")
+                       ;;(sequence "|" "WAIT(w)" "BACK(b)")
+                       )
+   org-agenda-window-setup 'current-window
+   org-log-done nil
+   )
+
+  (setq org-agenda-custom-commands
+        `(("d" "Dashboard"
+           ((agenda "" ((org-deadline-warning-days 7)))
+            (todo "NEXT"
+                  ((org-agenda-overriding-header "Next")
+                   (org-agenda-max-todos nil)))
+            (todo "TODO"
+                  ((org-agenda-overriding-header "TODOs")))
+            ))
+          ))
 
   ;; /usr/local/share/emacs/29.1/lisp/org/org.el.gz:753
   (setq org-modules
