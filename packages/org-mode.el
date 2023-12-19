@@ -33,21 +33,26 @@
         )
 
   (setq
-   org-todo-keywords '((sequence "TODO(t)" "NEXT(n)" "|" "DONE(d!)")
+   org-todo-keywords '((sequence "TODO(t)" "NEXT(n)" "WIP(w)" "|" "DONE(d!)")
                        ;;(sequence "|" "WAIT(w)" "BACK(b)")
                        )
-   org-agenda-window-setup 'current-window
+   org-agenda-restore-windows-after-quit t
+   org-agenda-window-setup 'only-window
    org-log-done nil
    )
 
   (setq org-agenda-custom-commands
         `(("d" "Dashboard"
            ((agenda "" ((org-deadline-warning-days 7)))
+            (todo "WIP"
+                  ((org-agenda-overriding-header "WIP"))
+                   (org-agenda-max-todos nil))
             (todo "NEXT"
                   ((org-agenda-overriding-header "Next")
                    (org-agenda-max-todos nil)))
             (todo "TODO"
-                  ((org-agenda-overriding-header "TODOs")))
+                  ((org-agenda-overriding-header "TODOs"))
+                   (org-agenda-max-todos nil))
             ))
           ))
 

@@ -10,14 +10,16 @@
 (use-package hl-todo
   :hook ((org-mode prog-mode) . hl-todo-mode)
   :config
-  (add-to-list 'hl-todo-keyword-faces '("TODO" . "#ff0000"))
+  (add-to-list 'hl-todo-keyword-faces '("TODO" . "#ff9000"))
+  (add-to-list 'hl-todo-keyword-faces '("NEXT" . "#ff0000"))
+  (add-to-list 'hl-todo-keyword-faces '("WIP" . "#ff0000"))
   )
 
 (use-package magit-todos
   :after magit
   :config
   (setq magit-todos-exclude-globs '(".git/" "sys/etc/")
-        magit-todos-keywords-list '("TODO" "FIXME" "BUG" "HACK")
+        magit-todos-keywords-list '("TODO" "NEXT" "WIP" "FIXME" "BUG" "HACK")
         magit-todos-fontify-org nil)
   (magit-todos-mode 1)
   )
