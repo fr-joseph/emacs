@@ -26,21 +26,37 @@
 
   (general-def
     :prefix "s-i"
+
     "G" 'consult-ripgrep
     "L" 'consult-line-multi
+
     "a" 'org-agenda
     "d" 'fj/org-agenda-dashboard
     "bc" 'fj/ibuffer-clean
-    "cc" 'comment-region
-    "cu" 'uncomment-region
+
     "g" 'fj/avy-goto-line-beginning
     "i" 'fj/indent-buffer
     "l" 'consult-line
-    "me" 'fj/magit-status-emacs
-    "ms" 'fj/magit-status-bak
     "r" 'consult-recent-file
+
+    "u" 'fj/find-non-ascii-in-buffer
+    "U" 'fj/html-encode-unicode-characters
+
     "v" 'rectangle-mark-mode
     "y" 'consult-yank-from-kill-ring
+
+    ;; commenting
+    "cc" 'comment-region
+    "cu" 'uncomment-region
+
+    ;; magit
+    "me" 'fj/magit-status-emacs
+    "ms" 'fj/magit-status-bak
+
+    ;; org-moe
+    "ot" 'org-toggle-link-display
+    "ox" 'org-cut-subtree
+    "oh" 'org-fold-hide-subtree
     )
 
   (general-def override
@@ -236,7 +252,6 @@
 
   (general-def org-mode-map
     ;;"C-j" 'org-indent-region
-    "C-c SPC h" 'org-fold-hide-subtree
     "M-p" 'org-metaup
     "M-n" 'org-metadown
     )
