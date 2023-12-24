@@ -29,6 +29,7 @@
 
     "G" 'consult-ripgrep
     "L" 'consult-line-multi
+    "Y" 'consult-yank-from-kill-ring
 
     "a" 'org-agenda
     "d" 'fj/org-agenda-dashboard
@@ -43,7 +44,7 @@
     "U" 'fj/html-encode-unicode-characters
 
     "v" 'rectangle-mark-mode
-    "y" 'consult-yank-from-kill-ring
+    "y" 'fj/paste-clipboard-fill-region
 
     ;; commenting
     "cc" 'comment-region

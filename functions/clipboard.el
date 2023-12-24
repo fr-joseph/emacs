@@ -23,6 +23,19 @@
   (insert (string-trim (string-replace "\n" "\\n" (fj/get-clipboard))))
   )
 
+(defun fj/paste-clipboard-fill-region ()
+  "paste clipboard, fill region"
+  (interactive)
+  (save-excursion
+    (insert (fj/get-clipboard))
+    (end-of-line)
+    (setq temp-point-end (point))
+    (beginning-of-line)
+    (setq temp-point-start (point))
+    (fill-region temp-point-start temp-point-end)
+    )
+  )
+
 (defun fj/position-to-kill-ring ()
   "Copy to the kill ring a string in the format `file-name:line-number'
 for the current buffer's file name, and the line number at point."
