@@ -33,8 +33,8 @@
         )
 
   (setq
-   org-todo-keywords '((sequence "TODO(t)" "NEXT(n)" "WIP(w)" "|" "DONE(d!)")
-                       ;;(sequence "|" "WAIT(w)" "BACK(b)")
+   org-todo-keywords '((sequence "TODO(t)" "WIP(w)" "|" "DONE(d!)")
+                       (sequence "|" "REF(f)" "RECUR(r)")
                        )
    org-agenda-restore-windows-after-quit t
    org-agenda-window-setup 'only-window
@@ -47,11 +47,14 @@
             (todo "WIP"
                   ((org-agenda-overriding-header "WIP"))
                    (org-agenda-max-todos nil))
-            (todo "NEXT"
-                  ((org-agenda-overriding-header "Next")
-                   (org-agenda-max-todos nil)))
             (todo "TODO"
                   ((org-agenda-overriding-header "TODOs"))
+                   (org-agenda-max-todos nil))
+            (todo "RECUR"
+                  ((org-agenda-overriding-header "RECURRING"))
+                  (org-agenda-max-todos nil))
+            (todo "REF"
+                  ((org-agenda-overriding-header "REF"))
                    (org-agenda-max-todos nil))
             ))
           ))
