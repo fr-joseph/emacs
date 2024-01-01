@@ -41,6 +41,6 @@
   (interactive)
   (fj/regex-replace-buffer "“" "&ldquo;")
   (fj/regex-replace-buffer "”" "&rdquo;")
-  ;;(fj/regex-replace-buffer "" "&lsquo;")
+  (fj/regex-replace-buffer "‘" "&lsquo;")
   (fj/regex-replace-buffer "’" "&rsquo;")
   )
