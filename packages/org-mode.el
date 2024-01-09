@@ -34,7 +34,7 @@
 
   (setq
    org-todo-keywords '((sequence "TODO(t)" "WIP(w)" "|" "DONE(d!)")
-                       (sequence "|" "REF(f)" "RECUR(r)")
+                       (sequence "|" "PROJECT(p)" "REF(f)" "RECUR(r)")
                        )
    org-agenda-restore-windows-after-quit t
    org-agenda-window-setup 'only-window
@@ -48,7 +48,10 @@
                   ((org-agenda-overriding-header "WIP"))
                    (org-agenda-max-todos nil))
             (todo "TODO"
-                  ((org-agenda-overriding-header "TODOs"))
+                  ((org-agenda-overriding-header "TODO"))
+                   (org-agenda-max-todos nil))
+            (todo "PROJECT"
+                  ((org-agenda-overriding-header "PROJECT"))
                    (org-agenda-max-todos nil))
             (todo "RECUR"
                   ((org-agenda-overriding-header "RECURRING"))
@@ -116,16 +119,27 @@
      )
     )
 
-  (dolist (face '((org-level-1 . 1.20)
-                  (org-level-2 . 1.20)
-                  (org-level-3 . 1.15)
-                  (org-level-4 . 1.15)
-                  (org-level-5 . 1.10)
-                  (org-level-6 . 1.10)
+  (dolist (face '((org-level-1 . 1.05)
+                  (org-level-2 . 1.05)
+                  (org-level-3 . 1.05)
+                  (org-level-4 . 1.05)
+                  (org-level-5 . 1.05)
+                  (org-level-6 . 1.05)
                   (org-level-7 . 1.05)
                   (org-level-8 . 1.05)))
     (set-face-attribute (car face) nil :font "Cantarell" :weight 'regular :height (cdr face))
     )
+
+  ;; (dolist (face '((org-level-1 . 1.20)
+  ;;                 (org-level-2 . 1.20)
+  ;;                 (org-level-3 . 1.15)
+  ;;                 (org-level-4 . 1.15)
+  ;;                 (org-level-5 . 1.10)
+  ;;                 (org-level-6 . 1.10)
+  ;;                 (org-level-7 . 1.05)
+  ;;                 (org-level-8 . 1.05)))
+  ;;   (set-face-attribute (car face) nil :font "Cantarell" :weight 'regular :height (cdr face))
+  ;;   )
 
   (org-crypt-use-before-save-magic)
   ;; cf. https://orgmode.org/manual/Org-Crypt.html

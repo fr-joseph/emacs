@@ -15,6 +15,7 @@
   (add-to-list 'hl-todo-keyword-faces '("WIP" . "#ff0000"))
   (add-to-list 'hl-todo-keyword-faces '("RECUR" . "#00ffff"))
   (add-to-list 'hl-todo-keyword-faces '("REF" . "#00ff00"))
+  (add-to-list 'hl-todo-keyword-faces '("PROJECT" . "#ffff00"))
   )
 
 (use-package magit-todos
